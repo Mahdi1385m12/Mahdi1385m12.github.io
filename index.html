@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Text Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Copy Text Website</h1>
+
+    <p id="textToCopy">This is the text to copy.</p>
+
+    <button onclick="copyText()">Copy Text</button>
+
+    <script>
+        function copyText() {
+            // یافتن المان مورد نظر
+            var textToCopy = document.getElementById("textToCopy");
+
+            // ساخت یک محیط متنی (textarea) برای کپی کردن متن
+            var textArea = document.createElement("textarea");
+            textArea.value = textToCopy.innerText;
+
+            // اضافه کردن محیط متنی به صفحه
+            document.body.appendChild(textArea);
+
+            // انتخاب محتوای محیط متنی
+            textArea.select();
+
+            // کپی کردن محتوا
+            document.execCommand('copy');
+
+            // حذف محیط متنی اضافه شده
+            document.body.removeChild(textArea);
+
+            alert("Text copied!");
+        }
+    </script>
+
+</body>
+</html>
